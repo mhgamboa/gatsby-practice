@@ -25,7 +25,7 @@ NOTE: I already have a fundamental understanding of Reactjs. It is recommended y
 ## Components
 
 - Components live inside the `src/components` folder
-  - When creating a `Navbar` component, make sure to use `<Link>` instead of `<a>`. You will also need to `import { Link } from 'gatsby'` at the top of your component
+  - When creating a `Navbar` component, make sure to use `<Link to="/about">` instead of `<a>`. You will also need to `import { Link } from 'gatsby'` at the top of your component
 - You will have to import the Components inside of your Webpages (Found within the `src/pages` folder)
 - Name the component Javascript files in
 
@@ -60,3 +60,11 @@ export default function Home() {
 }
 
 ```
+
+## Styling
+
+- Styles are stored in `src/styles`
+- Modules allow you to scope CSS Styling to spefic components and/or pages
+  - You implement it by creating the file `src/styles/pageName.modules.css`
+  - In `src/pages/pageName` You will import the CSS module like this: `import { cssSelector } from "../../styles/projects.module.css"`
+    -Then use the className/ID Name in your page (or component) like this: `<h1 className={cssSelector}>`

@@ -1,15 +1,16 @@
 import React from "react"
 import Navbar from "./Navbar"
+import "../styles/global.css"
 
 export default function Layout({ children }) {
   const currentYear = new Date().getFullYear()
 
   return (
-    <div>
+    <div className="layout">
       <Navbar />
       <div className="content">{children}</div>
       <footer>
-        <p>Marcus Gamboa {currentYear}©</p>
+        <p>Copyright {currentYear} Marcus Gamboa</p>
       </footer>
     </div>
   )
