@@ -10,7 +10,7 @@ NOTE: I already have a fundamental understanding of Reactjs. It is recommended y
 
 - 90% of the code you work on exists in the `src` folder
 - Make sure to have the VS Code extension "ES7 React/Redux/GraphQL/React-Native snippets" installed
-  - In each React component/page you can just type `rfc` to create a basic React App. This will save you a LOT of time.
+  - In each React component/page you can just type `rfc` to write a lot of React component boilerplate. This will save you a LOT of time.
 
 ## Web Pages
 
@@ -68,3 +68,9 @@ export default function Home() {
   - You implement it by creating the file `src/styles/pageName.modules.css`
   - In `src/pages/pageName` You will import the CSS module like this: `import { cssSelector } from "../../styles/projects.module.css"`
     -Then use the className/ID Name in your page (or component) like this: `<h1 className={cssSelector}>`
+
+## Static Files
+
+- Files put in the `/static` folder are directly available to the browser
+- The downside to using static files is that the files won't be minified or optimized at all through the Gatsby process.
+- when importing images in the `/static` folder, you can just reference the image `src` as if it were in the same folder. EX: `<img src="/programmer.svg" alt="" />`

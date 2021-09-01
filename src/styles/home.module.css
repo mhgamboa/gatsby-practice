@@ -12,6 +12,11 @@
   font-weight: 400;
   margin-bottom: 20px;
 }
+
+.header img {
+  max-width: 100%;
+}
+
 .btn {
   display: inline-block;
   background: #d42990;

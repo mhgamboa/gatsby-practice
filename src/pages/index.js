@@ -15,6 +15,7 @@ export default function Home() {
             My Portfolio Projects
           </Link>
         </div>
+        <img src="/programmer.svg" alt="Site Banner" />
       </section>
     </Layout>
   )
