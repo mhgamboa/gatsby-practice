@@ -29,7 +29,7 @@ NOTE: I already have a fundamental understanding of Reactjs. It is recommended y
 - You will have to import the Components inside of your Webpages (Found within the `src/pages` folder)
 - Name the component Javascript files in
 
-### Using Wrapping WebPages for Layouts (EX: Layouts)
+### Using Wrapping WebPages With Components (EX: Layouts)
 
 We will use `src/components/Layout.js` as an Example.
 
