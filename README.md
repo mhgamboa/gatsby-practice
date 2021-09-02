@@ -74,3 +74,70 @@ export default function Home() {
 - Files put in the `/static` folder are directly available to the browser
 - The downside to using static files is that the files won't be minified or optimized at all through the Gatsby process.
 - when importing images in the `/static` folder, you can just reference the image `src` as if it were in the same folder. EX: `<img src="/programmer.svg" alt="" />`
+
+## GraphQL
+
+- GraphQL is a querying language - it is a way to query data from the front-end. There are 2 parts to GraphQL.
+  - GraphQL Query: GraphQL queries are used to access the data from the GraphQL API(I think?)
+  - GraphQL API: It is made using schemas for different data sources/types. It serves data based on the queries we make.
+- All dynamic is brought together and normalized by GatsbyJS into one GraphQL layer. This normalized data is the content mesh.
+  - Data can come from anywhere (MongoDB, shopify, and/or wordpress)
+
+### GraphiQL
+
+- GraphiQL is a playground where we can test queries.
+- Run `gatsby develop` and access `http://localhost:8000/___graphql`. There are three main areas:
+  - The Explorer on the left. It is the base layer we can interact with; it lists all of the different schemas we can use.
+  - The middle area where we can construct test queries. You press the play button to play the query.
+    - `myQuery` is just the name of the query. You can rename it to whatever you want. Without the `query myQuery` part, the query will become something of an "anonymous function".
+  - On the right is the result preview, which will populate after a query has been played from the middle.
+- Click on "site" in the explorer. In the popuop click "host" and "port". Click the play button at the top.
+  - You can now see the results of the query on the right hand side.
+
+### Site Metadata
+
+- NOTE: we are doing this just so we can practice our querying.
+- You add meta to a website inside `/gatsby-config.js`.
+  - Whenever you change the `gatsby-config.js` file you must restart your server
+  - All this file does is export an object, where you can add plugin information. This is done through the `module.exports` you can.
+- To add site metadata add a property to module.exports. EX:
+
+```
+module.exports = {
+  /* Your site config here */
+  plugins: [],
+  siteMetadata: { //case must match exactly
+    title: "Your Name",
+    description: "Web Dev Portfolio",
+    copyright: "This Website is Copyright 2021 Marcus Gamboa"
+  }
+}
+```
+
+### Query Data from Pages with GraphQL
+
+- After adding this info, you should be able to query this data in GraphiQL under site>siteMetadata
+
+1. In the GraphiQL explorer click all the data you wish to query
+2. In the middle section copy the query.
+3. We will use the index.js page as an example. Below your component type the following:
+
+```
+export const query = graphql`
+  query queryName {
+    site {
+      siteMetadata {
+        description
+        title
+      }
+    }
+  }
+`
+```
+
+4. Pass `{ data }` as a parameter into your component.
+   1. information will now be available as data.site.siteMetadata
+
+## Additional Notes
+
+A big thank you to [Undraw](https://undraw.co/) for providing the Programmer.svg. Thank you again to NetNinja for their wonderful GatsbyJS tutorial.
