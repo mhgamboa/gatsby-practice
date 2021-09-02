@@ -120,7 +120,7 @@ module.exports = {
 
 1. In the GraphiQL explorer click all the data you wish to query
 2. In the middle section copy the query.
-3. We will use the index.js page as an example. Below your component type the following:
+3. We will use the `src/pages/index.js` page as an example. Below your component type the following:
 
 ```
 export const query = graphql`
@@ -135,8 +135,37 @@ export const query = graphql`
 `
 ```
 
-4. Pass `{ data }` as a parameter into your component.
-   1. information will now be available as data.site.siteMetadata
+4. Make sure to `import { graphql } from "gatsby"`
+5. Pass `{ data }` as a parameter into your component
+   1. Information will now be available as data.site.siteMetadata
+
+### Query Data from Components with GraphQL
+
+- Choose any component within `src/components`
+- Make sure to `import { graphql, useStaticQuery } from "gatsby"`
+- use `useStaticQuery` from within the component. EX:
+
+```
+export default function ComponentName() {
+  const data = useStaticQuery(graphql`
+    query SiteInfo {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+
+  const { title } = data.site.siteMetadata
+  console.log(title)
+
+  return (...)
+}
+```
+
+- You can only use `useStaticQuery()` once per component
+- Static Queries won't let you use static variables
 
 ## Additional Notes
 

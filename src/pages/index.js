@@ -4,8 +4,8 @@ import Layout from "../components/Layout"
 import { header, btn } from "../styles/home.module.css"
 
 export default function Home({ data }) {
-  const { title, description } = data.site.siteMetadata
-  console.log(title, description)
+  // const { title, description } = data.site.siteMetadata
+  // console.log(title, description)
   return (
     <Layout>
       <section className={header}>
@@ -23,13 +23,13 @@ export default function Home({ data }) {
   )
 }
 
-export const query = graphql`
-  query SiteInfo {
-    site {
-      siteMetadata {
-        description
-        title
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query SiteInfo {
+//     site {
+//       siteMetadata {
+//         description
+//         title
+//       }
+//     }
+//   }
+// `
